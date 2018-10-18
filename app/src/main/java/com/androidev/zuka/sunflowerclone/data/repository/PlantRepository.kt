@@ -1,6 +1,7 @@
 package com.androidev.zuka.sunflowerclone.data.repository
 
 import com.androidev.zuka.sunflowerclone.data.dao.PlantDao
+import com.androidev.zuka.sunflowerclone.data.model.Plant
 
 /**
  * Repository module for handling data operations.
@@ -13,6 +14,8 @@ class PlantRepository private constructor(private val plantDao: PlantDao) {
 
     fun getPlantsWithGrowZoneNumber(growZoneNumber : Int) =
             plantDao.getPlantsWithGrowZoneNumber(growZoneNumber)
+
+    fun insertPlant(plant: Plant) : String = plantDao.insertPlant(plant)
 
 
     companion object {
