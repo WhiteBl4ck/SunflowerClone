@@ -12,17 +12,19 @@ class PlantRepository private constructor(private val plantDao: PlantDao) {
 
     fun getPlant(plantId: String) = plantDao.getPlant(plantId)
 
-    fun getPlantsWithGrowZoneNumber(growZoneNumber : Int) =
+    fun getPlantsWithGrowZoneNumber(growZoneNumber: Int) =
             plantDao.getPlantsWithGrowZoneNumber(growZoneNumber)
 
-    fun insertPlant(plant: Plant) : String = plantDao.insertPlant(plant)
+    fun insertPlant(plant: Plant): String = plantDao.insertPlant(plant)
 
 
     companion object {
         // Singleton
-        @Volatile private var insance : PlantRepository? = null
+        @Volatile
+        private var insance: PlantRepository? = null
+
         fun getInstance(plantDao: PlantDao) =
-                insance ?: synchronized(this){
+                insance ?: synchronized(this) {
                     insance ?: PlantRepository(plantDao).also { insance = it }
                 }
     }
