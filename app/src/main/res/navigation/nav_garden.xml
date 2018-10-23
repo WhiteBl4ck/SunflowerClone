@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_garden"
+    app:startDestination="@id/plant_list_fragment">
+
+
+    <fragment
+        android:id="@+id/plant_list_fragment"
+        android:name="com.androidev.zuka.sunflowerclone.PlantListFragment"
+        android:label="fragment_plant_list"
+        tools:layout="@layout/fragment_plant_list" >
+        <action
+            android:id="@+id/action_plant_list_fragment_to_plantDetailFragment"
+            app:destination="@id/plant_detail_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            />
+
+    </fragment>
+    <fragment
+        android:id="@+id/plant_detail_fragment"
+        android:name="com.androidev.zuka.sunflowerclone.PlantDetailFragment"
+        android:label="fragment_plant_detail"
+        tools:layout="@layout/fragment_plant_detail" >
+        <argument
+            android:name="plantId"
+            app:argType="string" />
+    </fragment>
+</navigation>

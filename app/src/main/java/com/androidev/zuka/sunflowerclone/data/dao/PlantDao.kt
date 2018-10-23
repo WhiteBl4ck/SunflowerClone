@@ -23,5 +23,5 @@ interface PlantDao {
     fun insertAll(plants: List<Plant>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertPlant(plant : Plant) : String
+    fun insertPlant(plant : Plant) : Long
 }
